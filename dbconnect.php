@@ -1,5 +1,6 @@
 <?php
     session_start();
+
     require __DIR__ . '/vendor/autoload.php';
     use Dotenv\Dotenv;
 
@@ -18,5 +19,3 @@
         echo "Faild to connect to Database: " . $e->getMessage(), $e->getCode();
         die();
     }
-
-    echo "COnnected";
