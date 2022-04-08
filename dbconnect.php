@@ -19,3 +19,4 @@
         echo "Faild to connect to Database: " . $e->getMessage(), $e->getCode();
         die();
     }
+

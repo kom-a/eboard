@@ -3,7 +3,7 @@
     require "dbconnect.php";
 
     if (isset($_GET['logout'])) {
-        $_SESSION['email'] = "";
+        $_SESSION['email'] = '';
         $_SESSION['msg'] =  "Вы успешно вышли из системы";
         header('Location: index.php');
         exit();
