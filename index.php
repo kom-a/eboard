@@ -4,6 +4,7 @@
     require "dbconnect.php";
     require "header.php";
 
+    echo '<main class="container" style="margin-top: 100px">';
     switch($_GET['page']) {
         case 'main': {
             require 'mainpage.php';
@@ -22,6 +23,7 @@
             break;
         }
     }
+    echo '</main>';
 
     echo $_SESSION['msg'];
     $_SESSION['msg'] = "";

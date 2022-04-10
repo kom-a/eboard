@@ -9,7 +9,7 @@
 <body>
 
 <header class="container">
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark "> <!-- fixed-top -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">Eboard</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,10 +21,10 @@
                         <a class="nav-link active" aria-current="page" href="index.php">Главная</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?page=account">Аккаунт</a>
+                        <a class="nav-link active" href="index.php?page=account">Аккаунт</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?page=friends">Друзья</a>
+                        <a class="nav-link active" href="index.php?page=friends">Друзья</a>
                     </li>
                 </ul>
 
@@ -39,7 +39,7 @@
                     echo '</form>';
                 }
                 else {
-                    echo '<a class="nav-link" href="#">Привет, ' . $_SESSION['firstname'] . ' ' . $_SESSION['lastname'] .  '.</a>';
+                    echo '<a class="nav-link" href="index.php?page=account">Привет, ' . $_SESSION['firstname'] . ' ' . $_SESSION['lastname'] .  '.</a>';
                     echo '<a class="btn btn-outline-success my-2 my-sm-0" href="auth.php?logout=1">Выйти</a>';
                 }
                 ?>
