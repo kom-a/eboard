@@ -41,9 +41,13 @@
     echo '<ul class="list-group">';
     while ($row = $stmt->fetch(PDO::FETCH_LAZY)) {
         echo '
-                          <li class="list-group-item">' . $row["created_at"]. ': ' . $row["text"] . '
-                            <a href="deletepost.php?id= ' . $row["post_id"] .'"> Delete</a>
-                          </li>
-                    ';
+              <li class="list-group-item">
+                    <div class="d-flex gap-2 w-100 justify-content-between">
+                            <small class="opacity-50">'.$row['created_at'].'</small>
+                    </div>
+                    '.$row["text"].'
+                    <a href="deletepost.php?id= ' . $row["post_id"] .'">Delete</a>
+                </li>
+        ';
     }
     echo '</ul>';
