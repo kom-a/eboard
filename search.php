@@ -41,7 +41,7 @@
     while($row = $stmt->fetch(PDO::FETCH_LAZY)) {
         echo '
             <div class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                <img src="res/default_user.png" alt="avatar" width="32" height="32" class=flex-shrink-0">
+                <img src="'. $row["avatarURL"] .'" alt="avatar" width="32" height="32" class=flex-shrink-0">
                 <div class="d-flex gap-2 w-100 justify-content-between">
                     <div>
                         <h6 class="mb-0">'.$row['firstname'].' '.$row['lastname'].'</h6>

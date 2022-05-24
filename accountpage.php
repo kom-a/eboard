@@ -1,4 +1,8 @@
 <?php
+use Aws\S3\S3Client;
+use S3FileUploader\S3FileUploader;
+use UploadService\UploadService;
+
     if($_SESSION == null || $_SESSION['email'] == "") {
         echo '
             <div>
@@ -9,13 +13,27 @@
         exit();
     }
 
+    try {
+        $sql = 'SELECT * FROM users WHERE user_id=(:user_id)';
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue(':user_id', $_SESSION['user_id']);
+        $stmt->execute();
+        $user = $stmt->fetch(PDO::FETCH_LAZY);
+    } catch (PDOexception $error) {
+        echo $error->getMessage();
+        exit();
+    }
+
     echo '
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <img src="res/default_user.png" class="img-fluid">
+                    <img src="' . $user["avatarURL"] . '" class="img-fluid" style="width: 500px; height: 400px;">
                     <div>
-                        <button class="btn btn-dark justify-content-xl-center">Изменить аватар</button>
+                        <form class="form-control" action="update_avatar.php" method="post" enctype="multipart/form-data">
+                            <input type="file" name="filename">
+                            <input class="btn btn-outline-secondary" type="submit" value="Изменить аватар">
+                        </form>
                     </div>
                 </div>
                <div class="col">';
@@ -51,3 +69,4 @@
         ';
     }
     echo '</ul>';
+?>

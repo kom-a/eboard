@@ -1,10 +1,12 @@
 <?php
     session_start();
     date_default_timezone_set('Asia/Yekaterinburg');
+
     require "dbconnect.php";
     require "header.php";
-
+    
     echo '<main class="container" style="margin-top: 100px">';
+
     switch($_GET['page']) {
         case 'main': {
             require 'mainpage.php';
